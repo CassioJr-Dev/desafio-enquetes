@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+    provider = "prisma-client"
+    output   = "../generated/prisma"
+}
+
+datasource db {
+    provider = "postgresql"
+}
+
+enum PollStatus {
+    NOT_STARTED
+    STARTED
+    IN_PROGRESS
+    FINISHED
+}
+
+model Poll {
+    pollId String @id
+
+    title String
+
+    startDate DateTime
+    endDate   DateTime
+
+    status PollStatus @default(NOT_STARTED)
+
+    options Option[]
+    votes   Vote[]
+
+    createdAt DateTime
+    updatedAt DateTime
+}
+
+model Option {
+    optionId String @id
+
+    title      String
+    votesCount Int    @default(0)
+
+    pollId String
+    poll   Poll   @relation(fields: [pollId], references: [pollId], onDelete: Cascade)
+
+    votes Vote[]
+
+    createdAt DateTime
+    updatedAt DateTime
+}
+
+model Vote {
+    voteId String @id
+
+    pollId String
+    poll   Poll   @relation(fields: [pollId], references: [pollId], onDelete: Cascade)
+
+    optionId String
+    option   Option @relation(fields: [optionId], references: [optionId], onDelete: Cascade)
+
+    createdAt DateTime
+}
