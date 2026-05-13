@@ -32,8 +32,8 @@ model Poll {
     options Option[]
     votes   Vote[]
 
-    createdAt DateTime
-    updatedAt DateTime
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
 
 model Option {
@@ -47,8 +47,8 @@ model Option {
 
     votes Vote[]
 
-    createdAt DateTime
-    updatedAt DateTime
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
 
 model Vote {
@@ -60,5 +60,5 @@ model Vote {
     optionId String
     option   Option @relation(fields: [optionId], references: [optionId], onDelete: Cascade)
 
-    createdAt DateTime
+    createdAt DateTime @default(now())
 }
