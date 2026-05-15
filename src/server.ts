@@ -1,17 +1,15 @@
-import Fastify from 'fastify';
+import 'dotenv/config';
+import { buildApp } from './app.js';
 
-const app = Fastify({
-    logger: true,
-});
+const app = buildApp();
+const port = Number.parseInt(process.env.PORT ?? '3000', 10);
 
-app.get('/', async () => {
-    return 'hello word';
-});
+app.log.level = 'info';
 
 const start = async () => {
     try {
         await app.listen({
-            port: 3000,
+            port: Number.isNaN(port) ? 3000 : port,
         });
 
         console.log('Servidor rodando');
