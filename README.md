@@ -71,7 +71,7 @@ scripts/
 
 ### `src/server.ts`
 
-Ponto de entrada da aplicacao. Carrega variaveis de ambiente com `dotenv`, monta a app e sobe o servidor usando `PORT`, com fallback para `3000`.
+Ponto de entrada da aplicacao. Carrega variaveis de ambiente com `dotenv`, monta a app e sobe o servidor usando `PORT`, com fallback para `3000`, e `HOST`, com fallback para `0.0.0.0`.
 
 ### `src/app.ts`
 
