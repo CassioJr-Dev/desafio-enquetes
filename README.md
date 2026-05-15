@@ -303,11 +303,3 @@ O projeto possui:
 - testes end-to-end para WebSocket
 
 Essa distribuicao ajuda a cobrir tanto regras de negocio quanto integracao entre camadas.
-
-## Possiveis evolucoes
-
-- autenticacao e autorizacao
-- paginacao e filtros mais ricos
-- observabilidade com logs estruturados
-- fila ou broker para escalar o realtime horizontalmente
-- suporte a encerramento automatico de enquetes por data
