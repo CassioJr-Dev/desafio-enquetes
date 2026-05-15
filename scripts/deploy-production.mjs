@@ -61,4 +61,7 @@ run('npm', ['ci']);
 run('npx', ['prisma', 'generate']);
 run('npx', ['prisma', 'migrate', 'deploy']);
 run('npm', ['run', 'build']);
-run('node', ['dist/src/server.js']);
+
+console.log(
+    '\nProduction build finished. Start the server manually with: npm run start',
+);

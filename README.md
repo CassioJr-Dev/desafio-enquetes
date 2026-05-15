@@ -291,7 +291,7 @@ Servidor local:
 - `npm run test:unit`: executa testes unitarios
 - `npm run test:e2e`: executa o fluxo principal HTTP
 - `npm run test:e2e:websocket`: executa o fluxo realtime
-- `npm run deploy:prod`: instala dependencias, gera Prisma, aplica migrations, compila e sobe a app
+- `npm run deploy:prod`: instala dependencias, gera Prisma, aplica migrations e compila a app
 
 ## Testes
 
